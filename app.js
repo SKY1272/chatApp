@@ -51,6 +51,24 @@ app.get('/messages', (req, res) => {
     });
 });
 
+// Route for displaying the contact form
+app.get('/contactus', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'contactus.html'));
+});
+
+// Route for handling form submission
+app.post('/contactus', (req, res) => {
+    // Handle form submission and show success message
+    // Here, we're simply redirecting to '/success'
+    res.redirect('/success');
+});
+
+// Route for showing success message
+app.get('/success', (req, res) => {
+    res.send('Form successfully filled');
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
